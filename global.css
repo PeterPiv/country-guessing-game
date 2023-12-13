@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Roobert;
+  src: url(./Roobert-Regular.ttf);
+}
+
+* {
+  font-size: 1.3rem;
+  font-family: Roobert, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+body {
+  background-color: #131315;
+  color: #efefef;
+}
+
+main {
+  position: absolute;
+  top: 6rem;
+  width: 60%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}

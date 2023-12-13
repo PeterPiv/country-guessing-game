@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="game.css" />
+    <title>Counties quiz</title>
+  </head>
+  <body>
+    <header>
+      <h1>Guess that country! Quiz game</h1>
+      <div class="pop-up">
+        <div class="welcome-text">
+          <h3>Welcome to the quiz game!</h3>
+          <br />
+          <p>🌍 Welcome to "Guess that Country"! Can you identify a nation with just a few hints to help you? Put your global knowledge to the test.</p>
+          <br />
+          <p>Ready to play? Let the guessing game begin!🌏</p>
+        </div>
+        <button class="popup-button">Start quiz</button>
+      </div>
+    </header>
+    <main>
+      <div class="game hidden">
+        <div class="hints">
+          <div class="hint">
+            <p class="text-hidden" id="hint-1">
+              This country has a population of: <span class="api-insert"><b>0</b></span>
+            </p>
+            <button data-hint-target="hint-1">Hint #1</button>
+          </div>
+          <div class="hint">
+            <p class="text-hidden" id="hint-2">
+              This country is located in: <span class="api-insert"><b>Earth</b></span>
+            </p>
+            <button data-hint-target="hint-2">Hint #2</button>
+          </div>
+          <div class="hint">
+            <p class="text-hidden" id="hint-3">
+              The capital of this country is:
+              <span class="api-insert"><b>Big City</b></span>
+            </p>
+            <button data-hint-target="hint-3">Hint #3</button>
+          </div>
+        </div>
+        <div class="guess">
+          <div class="your-country">Your country was:</div>
+          <div class="guess-name"><b>country</b></div>
+        </div>
+        <div class="country-guess">
+          <h3>Guess the country here:</h3>
+          <form action="">
+            <input type="text" name="" id="country-guess" />
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
