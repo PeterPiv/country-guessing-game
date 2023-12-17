@@ -1,7 +1,7 @@
-<<<<<<< HEAD .game {
+.game {
   margin: auto;
   width: 80%;
-  height: 700px;
+  min-height: 700px;
   background-color: white;
   border-radius: 1rem;
 }
@@ -18,13 +18,13 @@
   padding: 0.3rem;
   background-color: #391f62;
   border-radius: 1rem;
+  display: flex;
   min-height: 100px;
 }
 
 .hint button {
   margin: 1rem auto;
   padding: 0.3rem 1rem;
-  display: flex;
   scale: 1;
   transition: 0.3s;
   border: none;
@@ -35,7 +35,7 @@
 
 .hint button:hover {
   cursor: pointer;
-  scale: 1.2;
+  scale: 1.15;
   transition: 0.3s;
   box-shadow: none;
 }
@@ -45,6 +45,10 @@
   color: white;
   margin: 0.5rem;
   transform: translate(0, 25%);
+}
+
+p > span {
+  color: #efefef;
 }
 
 form {
@@ -66,7 +70,7 @@ form input {
   border: none;
   background-color: #391f62;
   color: white;
-  text-indent: 1rem;
+  text-align: center;
 }
 
 form input:focus {
@@ -74,7 +78,6 @@ form input:focus {
 }
 
 .game h3 {
-  color: black;
   text-align: center;
   position: relative;
   top: 5rem;
@@ -88,11 +91,9 @@ form input:focus {
   display: flex;
   position: relative;
   justify-content: center;
-  color: black;
 }
 
 .guess-name {
-  color: black;
   display: flex;
   position: relative;
   top: 5%;
@@ -100,6 +101,27 @@ form input:focus {
 }
 
 .guess {
-  color: black;
   transform: translate(0, 45%);
+}
+
+.points {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.correct {
+  color: rgb(9, 111, 9);
+}
+
+.wrong {
+  color: rgb(162, 0, 0);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
 }

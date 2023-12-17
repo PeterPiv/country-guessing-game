@@ -1,4 +1,4 @@
-<<<<<<< HEAD header {
+header {
   margin: 1rem 2rem;
 }
 
@@ -17,6 +17,11 @@ header h1 {
   transform: translate(-50%);
   border-radius: 1rem;
   z-index: 100;
+}
+
+.welcome-text > h3,
+p {
+  color: #efefef;
 }
 
 .welcome-text p {

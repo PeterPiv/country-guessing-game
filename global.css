@@ -1,4 +1,4 @@
-<<<<<<< HEAD @font-face {
+@font-face {
   font-family: Roobert;
   src: url(./Roobert-Regular.ttf);
 }
@@ -7,6 +7,7 @@
   font-size: 1.3rem;
   font-family: Roobert, sans-serif;
   letter-spacing: 0.5px;
+  color: black;
 }
 
 body {
@@ -26,4 +27,12 @@ main {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+}
+
+header h1 {
+  color: #efefef;
+}
+
+span {
+  color: #efefef;
 }

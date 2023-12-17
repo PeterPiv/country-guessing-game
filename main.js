@@ -1,5 +1,7 @@
 // GENERAL TODOS
-// - right now users cant see what the selected country was, it should display somewhere on the page
+// have a small score system. for every right guess the player should get like 1 point. or maybe it could be a tiered point system. the more obscure a country is the more points you get.
+// refine country display
+// "auto-reload" game after a guess
 
 // SELECTORS
 const popUp = document.querySelector(".pop-up");
@@ -13,11 +15,9 @@ const apiInserts = document.querySelectorAll(".api-insert");
 const guess = document.querySelector(".guess");
 const guessName = document.querySelector(".guess-name");
 
-// while building the app, we are going to use window.onload. once its done it will be moved down to the popup button
 countryGuess.value = "";
 let selectedCountry;
 let countryName;
-requestCountries();
 
 // POPUP WINDOW HANDLING
 popUpBtn.addEventListener("click", () => {
@@ -28,7 +28,7 @@ popUpBtn.addEventListener("click", () => {
     }
     game.classList.remove("hidden");
   }
-  // requestCountries();
+  requestCountries();
 });
 
 // API CALL AND INSERTION
@@ -58,7 +58,7 @@ hintButtons.forEach((hintButton) => {
   hintButton.addEventListener("click", () => {
     const targetHintId = hintButton.dataset.hintTarget;
     const targetHint = document.querySelector(`#${targetHintId}`);
-    hintButton.remove();
+    hintButton.classList.toggle("hide");
     targetHint.classList.remove("text-hidden");
   });
 });
@@ -71,8 +71,18 @@ form.addEventListener("submit", async (e) => {
   guess.classList.remove("hidden");
 
   if (countryGuess.value.toLowerCase() === countryName.toLowerCase()) {
-    alert("Guess is right!");
+    guessName.classList.add("correct");
   } else {
-    alert("GUESS IS WRONG");
+    guessName.classList.add("wrong");
   }
+  guessName.classList.add("bold");
+
+  setTimeout(() => {
+    resetGame();
+  }, 1500);
 });
+
+function resetGame() {
+  hintButtons.forEach((hintButton) => {});
+  requestCountries();
+}
