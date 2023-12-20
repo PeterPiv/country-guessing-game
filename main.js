@@ -14,10 +14,13 @@ const hiddenText = document.querySelectorAll(".text-hidden");
 const apiInserts = document.querySelectorAll(".api-insert");
 const guess = document.querySelector(".guess");
 const guessName = document.querySelector(".guess-name");
+let pointsDisplay = document.querySelector(".points > span");
 
 countryGuess.value = "";
 let selectedCountry;
 let countryName;
+let points = 0;
+requestCountries();
 
 // POPUP WINDOW HANDLING
 popUpBtn.addEventListener("click", () => {
@@ -39,10 +42,9 @@ async function requestCountries() {
     const results = await response.json();
     countries.push(...results);
     console.log(countries);
-    const generatedNumber = Math.round(Math.random() * 250) + 1;
+    const generatedNumber = Math.floor(Math.random() * 250);
     // VARIABLES
     selectedCountry = countries[generatedNumber];
-
     apiInserts[0].textContent = selectedCountry.population;
     apiInserts[1].textContent = selectedCountry.subregion;
     apiInserts[2].textContent = selectedCountry.capital[0];
@@ -72,9 +74,15 @@ form.addEventListener("submit", async (e) => {
 
   if (countryGuess.value.toLowerCase() === countryName.toLowerCase()) {
     guessName.classList.add("correct");
-  } else {
-    guessName.classList.add("wrong");
+    guessName.classList.remove("wrong");
+    points += 1;
   }
+  if (countryGuess.value.toLowerCase() !== countryName.toLowerCase()) {
+    guessName.classList.add("wrong");
+    guessName.classList.remove("correct");
+    points -= 1;
+  }
+  pointsDisplay.textContent = points;
   guessName.classList.add("bold");
 
   setTimeout(() => {
@@ -82,7 +90,11 @@ form.addEventListener("submit", async (e) => {
   }, 1500);
 });
 
+// resets game after a guess
 function resetGame() {
   hintButtons.forEach((hintButton) => {});
+  guessName.classList.remove("correct", "wrong");
+  guessName.textContent = "-";
+  countryGuess.value = "";
   requestCountries();
 }
